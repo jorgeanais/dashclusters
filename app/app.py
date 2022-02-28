@@ -40,4 +40,4 @@ def update_figure(selected_algorithm):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=False, port=8080)
+    app.run_server(debug=False, port=8080, host="0.0.0.0")

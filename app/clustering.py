@@ -1,6 +1,9 @@
 """
 This script perform different clustering algorithms to a random data set.
 Results are stored in a pandas dataframe.
+
+Code based on the example available at:
+https://scikit-learn.org/stable/auto_examples/cluster/plot_cluster_comparison.html
 """
 
 import time

@@ -1,5 +1,5 @@
 # dashclusters
-A simple dashboard demo for clustering
+A simple dashboard for clustering
 
 ## Build docker image and run
 `docker build -t simpledashboard:latest .`  

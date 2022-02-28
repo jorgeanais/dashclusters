@@ -17,11 +17,13 @@ import pandas as pd
 
 
 n_samples = 2500
-X, y = datasets.make_blobs(n_samples=n_samples, cluster_std=[1.0, 2.5, 0.5], random_state=170)
+X, y = datasets.make_blobs(
+    n_samples=n_samples, cluster_std=[1.0, 2.5, 0.5], random_state=170
+)
 
 # Create pandas dataframe
-df = pd.DataFrame(X, columns=['x0', 'x1'])
-df['y'] = y
+df = pd.DataFrame(X, columns=["x0", "x1"])
+df["y"] = y
 
 params = {
     "quantile": 0.3,
@@ -39,7 +41,7 @@ params = {
 X = StandardScaler().fit_transform(X)
 
 # Update dataframe
-df = pd.concat([df, pd.DataFrame(X, columns=['x0_s', 'x1_s'])], axis=1)
+df = pd.concat([df, pd.DataFrame(X, columns=["x0_s", "x1_s"])], axis=1)
 
 # estimate bandwidth for mean shift
 bandwidth = cluster.estimate_bandwidth(X, quantile=params["quantile"])
@@ -80,9 +82,7 @@ average_linkage = cluster.AgglomerativeClustering(
     connectivity=connectivity,
 )
 birch = cluster.Birch(n_clusters=params["n_clusters"])
-gmm = mixture.GaussianMixture(
-    n_components=params["n_clusters"], covariance_type="full"
-)
+gmm = mixture.GaussianMixture(n_components=params["n_clusters"], covariance_type="full")
 
 clustering_algorithms = (
     ("MiniBatch KMeans", two_means),
@@ -127,5 +127,4 @@ for name, algorithm in clustering_algorithms:
     df[name] = y_pred
 
 # Labels to str
-df.to_csv('data/clustering_data.csv')
-
+df.to_csv("data/clustering_data.csv")

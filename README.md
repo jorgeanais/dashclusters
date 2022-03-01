@@ -8,3 +8,6 @@ A simple dashboard for clustering
 ## Build and Deploy to Google Cloud Run
 `gcloud builds submit --tag gcr.io/{ProjectID}/dash-clusters  --project={ProjectID}`    
 `gcloud run deploy --image gcr.io/{ProjectID}/dash-clusters --platform managed  --project={ProjectID} --allow-unauthenticated`
+
+
+![image](data/image.png)
